@@ -4,10 +4,10 @@
     <!-- meta -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0">
-<link rel="icon" type="image/x-icon" href="/images/giblog-logo.png">
-<link rel="stylesheet" type="text/css" href="/css/common.css">
+<link rel="icon" type="image/x-icon" href="/signatures-opinion-public/images/giblog-logo.png">
+<link rel="stylesheet" type="text/css" href="/signatures-opinion-public/css/common.css">
 
-<title>Title - mysite😄</title>
+<title>Title - Perl Subroutine Signatures Opinion Blog</title>
 <meta name="description" content="#!/usr/bin/env perl">
   </head>
   <body>
@@ -16,8 +16,11 @@
         <!-- header -->
 <div class="main">
   <h1>
-    <a href="/">Giblog Web Site</a>
+    <a href="/signatures-opinion-public/">Perl Subroutine Signatures Opinion Blog</a>
   </h1>
+  <div>
+    This site is an opinion blog about Perl Subroutine Signatures. Subroutine Signatures is plan to added to Perl in the near future. I have a very strong concern in the future of Perl, so I created an independent site about sub signatures. My name is Yuki Kimoto. I'm Perl Light User. I have no media power, community power, political power, and big company power. I am not white, Anglo-Saxon, European or American. I just feel and talk about the heart of a weak perl user without a voice.
+  </div>
 </div>
 
       </div>
@@ -56,7 +59,7 @@
 <p>
   my $content = <<"EOS";
 </p>
-<h2><a href="/test.cgi">Title</a></h2>
+<h2><a href="/signatures-opinion-public/test.cgi">Title</a></h2>
 <div>
   Content
 </div>
@@ -112,10 +115,10 @@
           <!-- side -->
 <div class="side-list">
   <div class="side-list-title">
-    Side Bar
+    Content
   </div>
   <ul>
-    <li><a href="/list.html">Entries</a></li>
+    <li><a href="/signatures-opinion-public/list.html">Entries</a></li>
     <li>Bar</li>
     <li>Baz</li>
   </ul>
