@@ -119,8 +119,7 @@
   </div>
   <ul>
     <li><a href="/signatures-opinion-public/list.html">Entries</a></li>
-    <li>Bar</li>
-    <li>Baz</li>
+    <li><a href="/signatures-opinion-public/blog/20190319121234.html">Why we want subroutine signatures?</a></li>
   </ul>
 </div>
 

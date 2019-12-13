@@ -7,7 +7,8 @@
 <link rel="icon" type="image/x-icon" href="/signatures-opinion-public/images/giblog-logo.png">
 <link rel="stylesheet" type="text/css" href="/signatures-opinion-public/css/common.css">
 
-<title>What is subroutine signatures - Perl Subroutine Signatures Opinion Blog</title>
+<title>Why we want subroutine signatures? - Perl Subroutine Signatures Opinion Blog</title>
+<meta name="description" content="As a first starting point, why do we want a subroutine signature?">
   </head>
   <body>
     <div class="container">
@@ -31,7 +32,85 @@
 
   </div>
   <div class="middle">
-    <h2><a href="/signatures-opinion-public/blog/20190319121234.html">What is subroutine signatures</a></h2>
+    <h2><a href="/signatures-opinion-public/blog/20190319121234.html">Why we want subroutine signatures?</a></h2>
+<p>
+  As a first starting point, why do we want a subroutine signature?
+</p>
+<p>
+  What is missing in Perl?
+</p>
+<h4>JavaScript Function Definition</h4>
+<p>
+  At first, see JavaScript code. foo function definition.
+</p>
+<pre>
+function foo (args1, args2) {
+  
+}
+</pre>
+<h4>Ruby Function Definition</h4>
+<p>
+  Next, see Ruby code of foo function definition.
+</p>
+<pre>
+def foo (args1, args2)
+  
+end
+</pre>
+<h4>Python Function Definition</h4>
+<p>
+  Next, see Python code of foo function definition.
+</p>
+<pre>
+def foo (args1, args2)
+  
+</pre>
+<h4>PHP Function Definition</h4>
+<p>
+  Next, see PHP code of foo function definition.
+</p>
+<pre>
+function foo ($args1, $args2) {
+
+}
+</pre>
+<h4>Perl Function Definition</h4>
+<p>
+  Last, see Perl code of foo function definition.
+</p>
+<pre>
+sub foo {
+  my ($args1, $args2) = @_;
+}
+</pre>
+<p>
+  Why Perl don't write the other languages?
+</p>
+<h3>Argument definition is very generally expression</h3>
+<p>
+  Argument definition is very generally expression in other all of modern programming languages.
+</p>
+<p>
+  People say
+</p>
+<p>
+  "What is @_?"
+</p>
+<p>
+  "Perl have many symbols."
+</p>
+<p>
+  "Perl is a old and dirty language"
+</p>
+<p>
+  <b>We need subroutine signatures to make Perl argument definitions fit into a very general expression.</b>
+</p>
+<p>
+  This is most biggest reason.
+</p>
+<p>
+  Subroutine signatures remove one of the criticisms "Perl is unreadable".
+</p>
 
   </div>
   <div class="bottom">
@@ -49,8 +128,7 @@
   </div>
   <ul>
     <li><a href="/signatures-opinion-public/list.html">Entries</a></li>
-    <li>Bar</li>
-    <li>Baz</li>
+    <li><a href="/signatures-opinion-public/blog/20190319121234.html">Why we want subroutine signatures?</a></li>
   </ul>
 </div>
 
