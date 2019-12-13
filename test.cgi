@@ -19,7 +19,7 @@
     <a href="/signatures-opinion-public/">Perl Subroutine Signatures Opinion Blog</a>
   </h1>
   <div>
-    This site is an opinion blog about Perl Subroutine Signatures. Subroutine Signatures is plan to added to Perl in the near future. I have a very strong concern in the future of Perl, so I created an independent site about sub signatures. My name is Yuki Kimoto. I'm Perl Light User. I have no media power, community power, political power, and big company power. I am not white, Anglo-Saxon, European or American. I just feel and talk about the heart of a weak perl user without a voice.
+    This site is an opinion blog about Perl Subroutine Signatures. Subroutine Signatures is plan to added to Perl in the near future. I have a very strong concern in the future of Perl, so I created an independent site about sub signatures. My name is Yuki Kimoto. I'm Perl Light User. I have no media power, community power, political power, and big company power. I just feel and talk about the heart of a weak perl user without a voice.
   </div>
 </div>
 
