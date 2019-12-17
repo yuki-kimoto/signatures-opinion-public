@@ -121,6 +121,7 @@
     <li><a href="/signatures-opinion-public/list.html">Entries</a></li>
     <li><a href="/signatures-opinion-public/blog/20190319121234.html">Why we want subroutine signatures?</a></li>
     <li><a href="/signatures-opinion-public/blog/20191216153849.html">Risk increased by checking the number of subroutine arguments</a><span style="color:gold">★★★</span></li>
+    <li><a href="/signatures-opinion-public/blog/20191217163216.html">Are array and hash representations really needed?</a><span style="color:gold">★</span></li>
   </ul>
 </div>
 

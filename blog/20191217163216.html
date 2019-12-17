@@ -7,8 +7,8 @@
 <link rel="icon" type="image/x-icon" href="/signatures-opinion-public/images/giblog-logo.png">
 <link rel="stylesheet" type="text/css" href="/signatures-opinion-public/css/common.css">
 
-<title>Why we want subroutine signatures? - Perl Subroutine Signatures Opinion Blog</title>
-<meta name="description" content="As a first starting point, why do we want a subroutine signature?">
+<title>Are array and hash representations really needed? - Perl Subroutine Signatures Opinion Blog</title>
+<meta name="description" content="Are array and hash representations really needed?">
   </head>
   <body>
     <div class="container">
@@ -32,19 +32,66 @@
 
   </div>
   <div class="middle">
-    <h2><a href="/signatures-opinion-public/blog/20190319121234.html">Why we want subroutine signatures?</a></h2>
+    <h2><a href="/signatures-opinion-public/blog/20191217163216.html">Are array and hash representations really needed?</a></h2>
 <p>
-  As a first starting point, why do we want a subroutine signature?
+  Are array and hash representations really needed?
 </p>
 <p>
-  What is missing in Perl?
+  Currently, "@foo" is proposed as the array representation. "%foo" is proposed as the representation of the hash.
+</p>
+<pre>
+# Array representation
+sub (@foo) {
+  
+}
+sub ($var, @foo) {
+  
+}
+
+# Hash representation
+sub (%foo) {
+  
+}
+
+sub ($var, %foo) {
+  
+}
+</pre>
+<p>
+  Are these always necessary?
+</p>
+<h3>Alternative representation using only scalar variables</h3>
+<p>
+  You can rewrite the above array and hash representation using only scalar variables if you need copy.
+</p>
+<pre>
+# Array representation
+sub ($foo) {
+  my @foo = @$foo;
+  
+}
+sub ($var, $foo) {
+  my @foo = @$foo;
+}
+
+# Hash representation
+sub ($foo) {
+  my %foo = %$foo;
+}
+sub ($var, $foo) {
+  my %foo = %$foo;
+}
+</pre>
+<h3>In many languages, array and hash passed as a reference</h3>
+<p>
+  In many languages, array and hash passed as a reference.
 </p>
 <h4>JavaScript Function Definition</h4>
 <p>
   At first, see JavaScript code. foo function definition.
 </p>
 <pre>
-function foo (args1, args2) {
+function foo (nums, opt) {
   
 }
 </pre>
@@ -53,7 +100,7 @@ function foo (args1, args2) {
   Next, see Ruby code of foo function definition.
 </p>
 <pre>
-def foo (args1, args2)
+def foo (nums, opt)
   
 end
 </pre>
@@ -62,7 +109,7 @@ end
   Next, see Python code of foo function definition.
 </p>
 <pre>
-def foo (args1, args2)
+def foo (nums, opt)
   
 </pre>
 <h4>PHP Function Definition</h4>
@@ -70,46 +117,50 @@ def foo (args1, args2)
   Next, see PHP code of foo function definition.
 </p>
 <pre>
-function foo ($args1, $args2) {
+function foo ($nums, $opt) {
 
 }
 </pre>
-<h4>Perl Function Definition</h4>
+<h4>Perl</h4>
 <p>
-  Last, see Perl code of foo function definition.
+  Subroutine signature of Perl is special.
 </p>
 <pre>
-sub foo {
-  my ($args1, $args2) = @_;
+sub ($var, @foo) {
+  
+}
+
+sub ($var, %foo) {
+  
 }
 </pre>
 <p>
-  Why Perl don't write the other languages?
-</p>
-<h3>Argument definition is very generally expression</h3>
-<p>
-  Argument definition is very generally expression in other all of modern programming languages.
+  In fact, current Perl already have reference  different from past Perl.
 </p>
 <p>
-  People say
+  If it is limited to only scalar variables as arguments of subroutine signatures, alternative expressions are possible.
+</p>
+<h3>What is benefit of limited only scalar variables?</h3>
+<p>
+  What is benefit of limited only scalar variables?
 </p>
 <p>
-  "What is @_?"
+  The biggest benefit is that the subroutine signature is very simple.
 </p>
 <p>
-  "Perl have many symbols."
+  Perl is already big and complex.
 </p>
 <p>
-  "Perl is a old and dirty language"
+  External people feel that Perl is already difficult to read and complex.
 </p>
 <p>
-  <b>We need subroutine signatures to make Perl argument definitions fit into a very general expression.</b>
+  Therefore, the subroutine signature specification, which is easy to understand, gives good evaluation when viewed from outside.
 </p>
 <p>
-  This is most biggest reason.
+  The Perl internal community may be frustrated.
 </p>
 <p>
-  Subroutine signatures remove one of the criticisms "Perl is unreadable".
+  What is good balance?
 </p>
 
   </div>

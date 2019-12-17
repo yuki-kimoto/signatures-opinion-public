@@ -31,6 +31,150 @@
     
   </div>
   <div class="middle">
+    <div class="day">2019/12/17</div>
+<h2><a href="/signatures-opinion-public/blog/20191217163216.html">Are array and hash representations really needed?</a></h2>
+<p>
+  Are array and hash representations really needed?
+</p>
+<p>
+  Currently, "@foo" is proposed as the array representation. "%foo" is proposed as the representation of the hash.
+</p>
+<pre>
+# Array representation
+sub (@foo) {
+  
+}
+sub ($var, @foo) {
+  
+}
+
+# Hash representation
+sub (%foo) {
+  
+}
+
+sub ($var, %foo) {
+  
+}
+</pre>
+<p>
+  Are these always necessary?
+</p>
+<h3>Alternative representation using only scalar variables</h3>
+<p>
+  You can rewrite the above array and hash representation using only scalar variables if you need copy.
+</p>
+<pre>
+# Array representation
+sub ($foo) {
+  my @foo = @$foo;
+  
+}
+sub ($var, $foo) {
+  my @foo = @$foo;
+}
+
+# Hash representation
+sub ($foo) {
+  my %foo = %$foo;
+}
+sub ($var, $foo) {
+  my %foo = %$foo;
+}
+</pre>
+<h3>In many languages, array and hash passed as a reference</h3>
+<p>
+  In many languages, array and hash passed as a reference.
+</p>
+<h4>JavaScript Function Definition</h4>
+<p>
+  At first, see JavaScript code. foo function definition.
+</p>
+<pre>
+function foo (nums, opt) {
+  
+}
+</pre>
+<h4>Ruby Function Definition</h4>
+<p>
+  Next, see Ruby code of foo function definition.
+</p>
+<pre>
+def foo (nums, opt)
+  
+end
+</pre>
+<h4>Python Function Definition</h4>
+<p>
+  Next, see Python code of foo function definition.
+</p>
+<pre>
+def foo (nums, opt)
+  
+</pre>
+<h4>PHP Function Definition</h4>
+<p>
+  Next, see PHP code of foo function definition.
+</p>
+<pre>
+function foo ($nums, $opt) {
+
+}
+</pre>
+<h4>Perl</h4>
+<p>
+  Subroutine signature of Perl is special.
+</p>
+<pre>
+sub ($var, @foo) {
+  
+}
+
+sub ($var, %foo) {
+  
+}
+</pre>
+<p>
+  In fact, current Perl already have reference  different from past Perl.
+</p>
+<p>
+  If it is limited to only scalar variables as arguments of subroutine signatures, alternative expressions are possible.
+</p>
+<h3>What is benefit of limited only scalar variables?</h3>
+<p>
+  What is benefit of limited only scalar variables?
+</p>
+<p>
+  The biggest benefit is that the subroutine signature is very simple.
+</p>
+<p>
+  Perl is already big and complex.
+</p>
+<p>
+  External people feel that Perl is already difficult to read and complex.
+</p>
+<p>
+  Therefore, the subroutine signature specification, which is easy to understand, gives good evaluation when viewed from outside.
+</p>
+<p>
+  The Perl internal community may be frustrated.
+</p>
+<p>
+  What is good balance?
+</p>
+
+
+  </div>
+  <div class="bottom">
+    
+  </div>
+</div>
+
+<div class="entry">
+  <div class="top">
+    
+  </div>
+  <div class="middle">
     <div class="day">2019/12/16</div>
 <h2><a href="/signatures-opinion-public/blog/20191216153849.html">Risk increased by checking the number of subroutine arguments</a></h2>
 <p>
@@ -291,6 +435,7 @@ sub foo {
     <li><a href="/signatures-opinion-public/list.html">Entries</a></li>
     <li><a href="/signatures-opinion-public/blog/20190319121234.html">Why we want subroutine signatures?</a></li>
     <li><a href="/signatures-opinion-public/blog/20191216153849.html">Risk increased by checking the number of subroutine arguments</a><span style="color:gold">★★★</span></li>
+    <li><a href="/signatures-opinion-public/blog/20191217163216.html">Are array and hash representations really needed?</a><span style="color:gold">★</span></li>
   </ul>
 </div>
 
