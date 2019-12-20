@@ -31,6 +31,142 @@
     
   </div>
   <div class="middle">
+    <div class="day">2019/12/20</div>
+<h2><a href="/signatures-opinion-public/blog/20191220163642.html">The way that CPAN authors use subroutine signatures in natural</a></h2>
+<p>
+  Perl users contains CPAN authors, not only application users who use the new version of Perl.
+</p>
+<p>
+  Generally, CPAN authors use Perl old grammar to support older versions of Perl.
+</p>
+<p>
+  Most CPAN modules support Perl 5.8+, and Some modules support Perl 5.10+ and 5.12+.
+</p>
+<h3>CPAN authors also want to use subroutine signatures</h3>
+<p>
+  Perl's new feature is for the new Perl, but when it comes to subroutine signatures, CPAN Author also maybe wants to use it.
+</p>
+<p>
+  If CPAN authors can use subroutine signatures, both application code and CPAN module code can be written in one source.
+</p>
+<p>
+  I think new features should work with the new Perl, but I'm happy that only the subroutine signature feature can be backported.
+</p>
+<p>
+  Wouldn't it be nice if you could use subroutine signatures with tens of thousands of CPAN modules?
+</p>
+<p>
+  But is there such a way?
+</p>
+<h3>Use signatures.pm if the perl version is lower than subroutine signatures</h3>
+<p>
+  Use signatures.pm if the perl version is lower than Perl which support subroutine signatures.
+</p>
+<p>
+  I write the code. CPAN author can use signatures.pm instead of core subroutine signatures.
+</p>
+<p>
+  This code use SigImport. SigImport export signatures.pm features to Foo.
+</p>
+<pre>
+package Foo;
+
+use strict;
+use warnings;
+use utf8;
+use FindBin;
+
+use lib "$FindBin::Bin";
+
+use SigImport;
+
+# Subroutine signatures imported from signatures.pm
+sub func($foo) {
+  return $foo;
+}
+
+package main;
+
+print Foo::func(1, 2);
+</pre>
+<p>
+  SigImport. This contains some signatures.pm fix.
+</p>
+<pre>
+package SigImport;
+
+BEGIN {
+  require signatures;
+}
+
+BEGIN {
+  no warnings 'redefine';
+  sub signatures::import {
+    my ($class, $caller) = @_;
+    $caller ||= caller();
+    $pkgs{$caller} = $class-&gt;setup_for($caller);
+    return;
+  }
+}
+
+sub import {
+  my $caller = caller;
+  
+   
+  #if ($] &gt;= 5.034001) {
+  #  feature-&gt;import('signatures');
+  #}
+  #else {
+    signatures-&gt;import($caller);
+  #}
+}
+
+1;
+</pre>
+<p>
+  This code work well. Swich signatures features by Perl version.
+</p>
+<p>
+  In this way, a more several things is needed.
+</p>
+<h4>the number of arguments in the subroutine signature is not checked by default</h4>
+<p>
+  the number of arguments in the subroutine signature is not checked by default.
+</p>
+<p>
+  See also the following entry.
+</p>
+<p>
+  <a href="/signatures-opinion-public/blog/20191216153849.html">Risk increased by checking the number of subroutine arguments</a>
+</p>
+<h4>signatures.pm is bandled to Perl core</h4>
+<p>
+  If signatures.pm is bandled to Perl core, we can write the following in Makefile.PL
+</p>
+<pre>
+    PREREQ_PM =&gt; {
+      'signatures.pm' =&gt; 0.15,
+    },
+</pre>
+<p>
+  CPAN authores can switch signature.pm to core subroutine signatures.
+</p>
+<p>
+  Wouldn't it be nice if you could fix the past in a subroutine signature?
+</p>
+
+
+  </div>
+  <div class="bottom">
+    
+  </div>
+</div>
+
+<div class="entry">
+  <div class="top">
+    
+  </div>
+  <div class="middle">
     <div class="day">2019/12/18</div>
 <h2><a href="/signatures-opinion-public/blog/20191218170414.html">Is the new grammar easy to google search?</a></h2>
 <p>
@@ -497,6 +633,7 @@ sub foo {
     <li><a href="/signatures-opinion-public/blog/20191216153849.html">Risk increased by checking the number of subroutine arguments</a><span style="color:gold">★★★</span></li>
     <li><a href="/signatures-opinion-public/blog/20191217163216.html">Are array and hash representations really needed?</a><span style="color:gold">★</span></li>
     <li><a href="/signatures-opinion-public/blog/20191218170414.html">Is the new grammar easy to google search?</a><span style="color:gold">★</span></li>
+    <li><a href="/signatures-opinion-public/blog/20191220163642.html">The way that CPAN authors use subroutine signatures in natural</a><span style="color:gold">★★★</span></li>
   </ul>
 </div>
 
