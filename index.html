@@ -31,6 +31,115 @@
     
   </div>
   <div class="middle">
+    <div class="day">2019/12/23</div>
+<h2><a href="/signatures-opinion-public/blog/20191223153633.html">Type Constraints using Type::Tiny and attribute handler</a></h2>
+<p>
+  If you can perform type checking with an attribute handler and <a href="https://metacpan.org/pod/Type::Tiny">Type::Tiny</a>, Perl will be more attractive.
+</p>
+<p>
+  For example.
+</p>
+<pre>
+use Type::Tiny::Signatures;
+
+sub foo ($str : Str, $num : Int) {
+  
+}
+</pre>
+<h3>What is attribute handler?</h3>
+<p>
+  The attribute handler is a function that can handle the attribute setting of subroutines and variables from Perl 5.6.
+</p>
+<pre>
+#!perl -w
+use strict;
+
+sub MODIFY_CODE_ATTRIBUTES{
+  my($class, $code_ref, $attr_name) = @_;
+  Dump($code_ref);
+}
+
+# Subroutine attribute
+sub foo : MyAttr {
+
+}
+</pre>
+<p>
+  Perl already has a syntax called attributes.
+</p>
+<pre>
+sub foo : attribute
+</pre>
+<h3>Attribute for arguments of subroutine signatures</h3>
+<p>
+  We are fortunate.
+</p>
+<p>
+  Aattributes of subroutine argument are not yet implemented.
+</p>
+<p>
+  We can implement the use of subroutine attributes without worrying about the past.
+</p>
+<p>
+  It would be nice to be able to check arguments by combining a subroutine argument attribute handler with <a href="https://metacpan.org/pod/Type::Tiny">Type::Tiny</a>.
+</p>
+<pre>
+use Type::Tiny::Signatures;
+
+sub foo ($str : Str, $num : Int) {
+  
+}
+</pre>
+<h3>Perl core is all dynamic, and you can add listrictions by module</h3>
+<p>
+  We have known for 30 years that all Perl core is dynamic.
+</p>
+<p>
+  Perl has no restrictions by default.
+</p>
+<p>
+  On the other hand, you can incorporate constraints by using modules.
+</p>
+<p>
+  For example,
+</p>
+<p>
+  <a href="https://metacpan.org/pod/fields">fields</a> modules for field listrictions.
+</p>
+<p>
+  <a href="https://metacpan.org/pod/Hash::Util">Hash::Util::lock_keys</a> for hash key listrictions.
+</p>
+<p>
+  Sure, <a href="https://metacpan.org/pod/Type::Tiny">Type::Tiny</a> for type constraints.
+</p>
+<p>
+  This is 30 years of Perl convention.
+</p>
+<p>
+  If signatures is dynamic and, add listrictions by module and attribute handler,
+</p>
+<p>
+  We are likely to be able to work with the old and the new and solve the Perl community's dissatisfaction.
+</p>
+<p>
+  I hope that older users who have enjoyed the dynamic types of Perl can collaborate with the Perl community who wanted to do type checking.
+</p>
+<p>
+  I suggest an implementation where <a href="https://metacpan.org/pod/Type::Tiny">Type::Tiny</a> works correctly with subroutine signatures.
+</p>
+
+
+  </div>
+  <div class="bottom">
+    
+  </div>
+</div>
+
+<div class="entry">
+  <div class="top">
+    
+  </div>
+  <div class="middle">
     <div class="day">2019/12/20</div>
 <h2><a href="/signatures-opinion-public/blog/20191220163642.html">The way that CPAN authors use subroutine signatures in natural</a></h2>
 <p>
@@ -634,6 +743,7 @@ sub foo {
     <li><a href="/signatures-opinion-public/blog/20191217163216.html">Are array and hash representations really needed?</a><span style="color:gold">★</span></li>
     <li><a href="/signatures-opinion-public/blog/20191218170414.html">Is the new grammar easy to google search?</a><span style="color:gold">★</span></li>
     <li><a href="/signatures-opinion-public/blog/20191220163642.html">The way that CPAN authors use subroutine signatures in natural</a><span style="color:gold">★★★</span></li>
+    <li><a href="/signatures-opinion-public/blog/20191223153633.html">Type Constraints using Type::Tiny and attribute handler</a><span style="color:gold">★★</span></li>
   </ul>
 </div>
 

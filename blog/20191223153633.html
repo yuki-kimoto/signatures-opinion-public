@@ -7,8 +7,8 @@
 <link rel="icon" type="image/x-icon" href="/signatures-opinion-public/images/giblog-logo.png">
 <link rel="stylesheet" type="text/css" href="/signatures-opinion-public/css/common.css">
 
-<title>Why we want subroutine signatures? - Perl Subroutine Signatures Opinion Blog</title>
-<meta name="description" content="As a first starting point, why do we want a subroutine signature?">
+<title>Type Constraints using Type::Tiny and attribute handler - Perl Subroutine Signatures Opinion Blog</title>
+<meta name="description" content="If you can perform type checking with an attribute handler and Type::Tiny, Perl will be more attractive.">
   </head>
   <body>
     <div class="container">
@@ -32,84 +32,100 @@
 
   </div>
   <div class="middle">
-    <h2><a href="/signatures-opinion-public/blog/20190319121234.html">Why we want subroutine signatures?</a></h2>
+    <h2><a href="/signatures-opinion-public/blog/20191223153633.html">Type Constraints using Type::Tiny and attribute handler</a></h2>
 <p>
-  As a first starting point, why do we want a subroutine signature?
+  If you can perform type checking with an attribute handler and <a href="https://metacpan.org/pod/Type::Tiny">Type::Tiny</a>, Perl will be more attractive.
 </p>
 <p>
-  What is missing in Perl?
-</p>
-<h4>JavaScript Function Definition</h4>
-<p>
-  At first, see JavaScript code. foo function definition.
+  For example.
 </p>
 <pre>
-function foo (args1, args2) {
+use Type::Tiny::Signatures;
+
+sub foo ($str : Str, $num : Int) {
   
 }
 </pre>
-<h4>Ruby Function Definition</h4>
+<h3>What is attribute handler?</h3>
 <p>
-  Next, see Ruby code of foo function definition.
+  The attribute handler is a function that can handle the attribute setting of subroutines and variables from Perl 5.6.
 </p>
 <pre>
-def foo (args1, args2)
-  
-end
-</pre>
-<h4>Python Function Definition</h4>
-<p>
-  Next, see Python code of foo function definition.
-</p>
-<pre>
-def foo (args1, args2)
-  
-</pre>
-<h4>PHP Function Definition</h4>
-<p>
-  Next, see PHP code of foo function definition.
-</p>
-<pre>
-function foo ($args1, $args2) {
+#!perl -w
+use strict;
+
+sub MODIFY_CODE_ATTRIBUTES{
+  my($class, $code_ref, $attr_name) = @_;
+  Dump($code_ref);
+}
+
+# Subroutine attribute
+sub foo : MyAttr {
 
 }
 </pre>
-<h4>Perl Function Definition</h4>
 <p>
-  Last, see Perl code of foo function definition.
+  Perl already has a syntax called attributes.
 </p>
 <pre>
-sub foo {
-  my ($args1, $args2) = @_;
+sub foo : attribute
+</pre>
+<h3>Attribute for arguments of subroutine signatures</h3>
+<p>
+  We are fortunate.
+</p>
+<p>
+  Aattributes of subroutine argument are not yet implemented.
+</p>
+<p>
+  We can implement the use of subroutine attributes without worrying about the past.
+</p>
+<p>
+  It would be nice to be able to check arguments by combining a subroutine argument attribute handler with <a href="https://metacpan.org/pod/Type::Tiny">Type::Tiny</a>.
+</p>
+<pre>
+use Type::Tiny::Signatures;
+
+sub foo ($str : Str, $num : Int) {
+  
 }
 </pre>
+<h3>Perl core is all dynamic, and you can add listrictions by module</h3>
 <p>
-  Why Perl don't write the other languages?
-</p>
-<h3>Argument definition is very generally expression</h3>
-<p>
-  Argument definition is very generally expression in other all of modern programming languages.
+  We have known for 30 years that all Perl core is dynamic.
 </p>
 <p>
-  People say
+  Perl has no restrictions by default.
 </p>
 <p>
-  "What is @_?"
+  On the other hand, you can incorporate constraints by using modules.
 </p>
 <p>
-  "Perl have many symbols."
+  For example,
 </p>
 <p>
-  "Perl is a old and dirty language"
+  <a href="https://metacpan.org/pod/fields">fields</a> modules for field listrictions.
 </p>
 <p>
-  <b>We need subroutine signatures to make Perl argument definitions fit into a very general expression.</b>
+  <a href="https://metacpan.org/pod/Hash::Util">Hash::Util::lock_keys</a> for hash key listrictions.
 </p>
 <p>
-  This is most biggest reason.
+  Sure, <a href="https://metacpan.org/pod/Type::Tiny">Type::Tiny</a> for type constraints.
 </p>
 <p>
-  Subroutine signatures remove one of the criticisms "Perl is unreadable".
+  This is 30 years of Perl convention.
+</p>
+<p>
+  If signatures is dynamic and, add listrictions by module and attribute handler,
+</p>
+<p>
+  We are likely to be able to work with the old and the new and solve the Perl community's dissatisfaction.
+</p>
+<p>
+  I hope that older users who have enjoyed the dynamic types of Perl can collaborate with the Perl community who wanted to do type checking.
+</p>
+<p>
+  I suggest an implementation where <a href="https://metacpan.org/pod/Type::Tiny">Type::Tiny</a> works correctly with subroutine signatures.
 </p>
 
   </div>
