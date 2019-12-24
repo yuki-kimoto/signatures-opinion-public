@@ -7,8 +7,8 @@
 <link rel="icon" type="image/x-icon" href="/signatures-opinion-public/images/giblog-logo.png">
 <link rel="stylesheet" type="text/css" href="/signatures-opinion-public/css/common.css">
 
-<title>Entries - Perl Subroutine Signatures Opinion Blog</title>
-<meta name="description" content="Entries of Perl Subroutine Signatures Opinion Blog">
+<title>Default value expression - Perl Subroutine Signatures Opinion Blog</title>
+<meta name="description" content="In first proposal of subroutine signatures, default value is the following.">
   </head>
   <body>
     <div class="container">
@@ -32,33 +32,46 @@
 
   </div>
   <div class="middle">
-    <h2><a href="/signatures-opinion-public/list.html">Entries</a></h2>
-<ul>
-  <li style="list-style:none;">
-    <b>2019</b>
-  </li>
-  <li style="list-style:none">
-    12/24 <a href="/signatures-opinion-public/blog/20191224114859.html">Default value expression</a>
-  </li>
-  <li style="list-style:none">
-    12/23 <a href="/signatures-opinion-public/blog/20191223153633.html">Type Constraints using Type::Tiny and attribute handler</a>
-  </li>
-  <li style="list-style:none">
-    12/20 <a href="/signatures-opinion-public/blog/20191220163642.html">The way that CPAN authors use subroutine signatures in natural</a>
-  </li>
-  <li style="list-style:none">
-    12/18 <a href="/signatures-opinion-public/blog/20191218170414.html">Is the new grammar easy to google search?</a>
-  </li>
-  <li style="list-style:none">
-    12/17 <a href="/signatures-opinion-public/blog/20191217163216.html">Are array and hash representations really needed?</a>
-  </li>
-  <li style="list-style:none">
-    12/16 <a href="/signatures-opinion-public/blog/20191216153849.html">Risk increased by checking the number of subroutine arguments</a>
-  </li>
-  <li style="list-style:none">
-    3/19 <a href="/signatures-opinion-public/blog/20190319121234.html">Why we want subroutine signatures?</a>
-  </li>
-</ul>
+    <h2><a href="/signatures-opinion-public/blog/20191224114859.html">Default value expression</a></h2>
+<p>
+  In first proposal of subroutine signatures, default value is the following.
+</p>
+<pre>
+sub func($foo //= 0, $bar ||= 0) {
+  
+}
+</pre>
+<p>
+  I think this can use only "=" as same as many ohter languages. and "||" is in body if needed.
+</p>
+<pre>
+sub func($foo = 0, $bar) {
+  $bar ||= 0;
+}
+</pre>
+<p>
+  This expression is general in other languages.
+</p>
+<h4>PHP</h4>
+<pre>
+function makecoffee($type = "cappuccino")
+{
+    return "Making a cup of $type.\n";
+}
+</pre>
+<h4>Python</h4>
+<pre>
+def func_default(arg1, arg2='default_x', arg3='default_y'):
+    print(arg1)
+    print(arg2)
+    print(arg3)
+</pre>
+<h4>Ruby</h4>
+<pre>
+def printHello(msg="No msg", name="No name")
+  print(msg + "," + name + "¥n")
+end
+</pre>
 
   </div>
   <div class="bottom">

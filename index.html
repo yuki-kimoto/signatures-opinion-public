@@ -31,6 +31,60 @@
     
   </div>
   <div class="middle">
+    <div class="day">2019/12/24</div>
+<h2><a href="/signatures-opinion-public/blog/20191224114859.html">Default value expression</a></h2>
+<p>
+  In first proposal of subroutine signatures, default value is the following.
+</p>
+<pre>
+sub func($foo //= 0, $bar ||= 0) {
+  
+}
+</pre>
+<p>
+  I think this can use only "=" as same as many ohter languages. and "||" is in body if needed.
+</p>
+<pre>
+sub func($foo = 0, $bar) {
+  $bar ||= 0;
+}
+</pre>
+<p>
+  This expression is general in other languages.
+</p>
+<h4>PHP</h4>
+<pre>
+function makecoffee($type = "cappuccino")
+{
+    return "Making a cup of $type.\n";
+}
+</pre>
+<h4>Python</h4>
+<pre>
+def func_default(arg1, arg2='default_x', arg3='default_y'):
+    print(arg1)
+    print(arg2)
+    print(arg3)
+</pre>
+<h4>Ruby</h4>
+<pre>
+def printHello(msg="No msg", name="No name")
+  print(msg + "," + name + "¥n")
+end
+</pre>
+
+
+  </div>
+  <div class="bottom">
+    
+  </div>
+</div>
+
+<div class="entry">
+  <div class="top">
+    
+  </div>
+  <div class="middle">
     <div class="day">2019/12/23</div>
 <h2><a href="/signatures-opinion-public/blog/20191223153633.html">Type Constraints using Type::Tiny and attribute handler</a></h2>
 <p>
