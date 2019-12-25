@@ -7,8 +7,8 @@
 <link rel="icon" type="image/x-icon" href="/signatures-opinion-public/images/giblog-logo.png">
 <link rel="stylesheet" type="text/css" href="/signatures-opinion-public/css/common.css">
 
-<title>Type Constraints using Type::Tiny and attribute handler - Perl Subroutine Signatures Opinion Blog</title>
-<meta name="description" content="If you can perform type checking with an attribute handler and Type::Tiny, Perl will be more attractive.">
+<title>Larry said "No one sews a patch of unshrunk cloth on an old garment" - Perl Subroutine Signatures Opinion Blog</title>
+<meta name="description" content="When he aproved Raku naming change, Larry said .">
   </head>
   <body>
     <div class="container">
@@ -32,100 +32,43 @@
 
   </div>
   <div class="middle">
-    <h2><a href="/signatures-opinion-public/blog/20191223153633.html">Type Constraints using Type::Tiny and attribute handler</a></h2>
+    <h2><a href="/signatures-opinion-public/blog/20191225153218.html">Larry said "No one sews a patch of unshrunk cloth on an old garment"</a></h2>
 <p>
-  If you can perform type checking with an attribute handler and <a href="https://metacpan.org/pod/Type::Tiny">Type::Tiny</a>, Perl will be more attractive.
+  When he aproved Raku naming change, Larry said .
 </p>
 <p>
-  For example.
-</p>
-<pre>
-use Type::Tiny::Signatures;
-
-sub foo ($str : Str, $num : Int) {
-  
-}
-</pre>
-<h3>What is attribute handler?</h3>
-<p>
-  The attribute handler is a function that can handle the attribute setting of subroutines and variables from Perl 5.6.
-</p>
-<pre>
-#!perl -w
-use strict;
-
-sub MODIFY_CODE_ATTRIBUTES{
-  my($class, $code_ref, $attr_name) = @_;
-  Dump($code_ref);
-}
-
-# Subroutine attribute
-sub foo : MyAttr {
-
-}
-</pre>
-<p>
-  Perl already has a syntax called attributes.
-</p>
-<pre>
-sub foo : attribute
-</pre>
-<h3>Attribute for arguments of subroutine signatures</h3>
-<p>
-  We are fortunate.
+  "No one sews a patch of unshrunk cloth on an old garment, for the patch will pull away from the garment, making the tear worse. Neither do people pour new wine into old wineskins. If they do, the skins will burst; the wine will run out and the wineskins will be ruined. No, they pour new wine into new wineskins, and both are preserved."
 </p>
 <p>
-  Aattributes of subroutine argument are not yet implemented.
+  This is a Bible quotation, but needs some explanation.
+</p>
+<h3>New wine means Raku features. New skins means Raku name</h3>
+<p>
+  New wine means Raku features. New skins means Raku.
+</p>
+<h3>old wine means Perl features. new skins means Perl name</h3>
+<p>
+  Old wine means Perl features. Old skins means Perl name.
+</p>
+<h3>New Raku features don't fit old Perl name</h3>
+<p>
+  New Raku features don't fit old Perl name.
+</p>
+<h3>What did Larry want to say?</h3>
+<p>
+  If we try to add Raku's new features to Perl name, it will break Perl.
 </p>
 <p>
-  We can implement the use of subroutine attributes without worrying about the past.
+  New Raku features must be put into Raku.
 </p>
 <p>
-  It would be nice to be able to check arguments by combining a subroutine argument attribute handler with <a href="https://metacpan.org/pod/Type::Tiny">Type::Tiny</a>.
-</p>
-<pre>
-use Type::Tiny::Signatures;
-
-sub foo ($str : Str, $num : Int) {
-  
-}
-</pre>
-<h3>Perl core is all dynamic, and you can add listrictions by module</h3>
-<p>
-  We have known for 30 years that all Perl core is dynamic.
+  Both Perl and Raku have grown up. Both is over 18 years old.
 </p>
 <p>
-  Perl has no restrictions by default.
+  Subroutine signatures are a new feature in Perl, On the other hand, if we were to get much from Raku, it would break Perl.
 </p>
 <p>
-  On the other hand, you can incorporate constraints by using modules.
-</p>
-<p>
-  For example,
-</p>
-<p>
-  <a href="https://metacpan.org/pod/fields">fields</a> modules for field listrictions.
-</p>
-<p>
-  <a href="https://metacpan.org/pod/Hash::Util">Hash::Util::lock_keys</a> for hash key listrictions.
-</p>
-<p>
-  Sure, <a href="https://metacpan.org/pod/Type::Tiny">Type::Tiny</a> for type constraints.
-</p>
-<p>
-  This is 30 years of Perl convention.
-</p>
-<p>
-  If signatures is dynamic and, add listrictions by module and attribute handler,
-</p>
-<p>
-  We are likely to be able to work with the old and the new and solve the Perl community's dissatisfaction.
-</p>
-<p>
-  I hope that older users who have enjoyed the dynamic types of Perl can collaborate with the Perl community who wanted to do type checking.
-</p>
-<p>
-  I suggest an implementation where <a href="https://metacpan.org/pod/Type::Tiny">Type::Tiny</a> works correctly with subroutine signatures.
+  Why not start again from who the Perl user is?
 </p>
 
   </div>
